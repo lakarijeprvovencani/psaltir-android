@@ -108,43 +108,11 @@ export default function WelcomeScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Видео позадина са fallback-ом */}
-      {!videoError ? (
-        <Video
-          ref={(ref) => setVideoRef(ref)}
-          source={require('../assets/images/svecabm.mp4')}
-          style={styles.backgroundVideo}
-          resizeMode={ResizeMode.COVER}
-          shouldPlay={true}
-          isLooping={true}
-          isMuted={true}
-          useNativeControls={false}
-          onLoad={(status: AVPlaybackStatus) => {
-            console.log('Video loaded successfully');
-            setVideoLoaded(true);
-          }}
-          onLoadStart={() => {
-            console.log('Video loading started');
-          }}
-          onError={(error) => {
-            console.warn('Video loading error:', error);
-            setVideoError(true);
-          }}
-          onPlaybackStatusUpdate={(status: AVPlaybackStatus) => {
-            // Handle playback status updates if needed
-            if (status.isLoaded === false && status.error) {
-              console.warn('Video playback error:', status.error);
-              setVideoError(true);
-            }
-          }}
-        />
-      ) : (
-        // Fallback градијент позадина ако видео не ради
-        <LinearGradient
-          colors={['#0C0C0C', '#1A1A1A', '#2A2A2A']}
-          style={styles.backgroundVideo}
-        />
-      )}
+      {/* Temporarily disable video to test */}
+      <LinearGradient
+        colors={['#0C0C0C', '#1A1A1A', '#2A2A2A']}
+        style={styles.backgroundVideo}
+      />
       
       {/* Dark overlay for better text readability */}
       <View style={styles.overlay} />
