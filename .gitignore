@@ -29,7 +29,9 @@ yarn-error.*
 
 # local env files
 .env*.local
-# Note: .env is included for production builds with Supabase credentials
 
 # typescript
 *.tsbuildinfo
+.env
+.env.*
+!.env.example
